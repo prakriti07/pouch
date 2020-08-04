@@ -26,25 +26,60 @@ jobs:
   include:
     - stage: test
       name: "Unit test"
+      arch: amd64
       script: ./travis_ci.sh unittest
+    - stage: test
+      name: "Unit test"
+      arch: arm64
+      script: ./travis_ci.sh unittest  
 
     - stage: test
       name: "CRIv1alpha2 test"
+      arch: amd64
       script: ./travis_ci.sh criv1alpha2test
+    - stage: test
+      name: "CRIv1alpha2 test"
+      arch: arm64
+      script: ./travis_ci.sh criv1alpha2test  
 
     - stage: test
       name: "Node e2e test"
+      arch: amd64
       script: ./travis_ci.sh nodee2etest
+    - stage: test
+      name: "Node e2e test"
+      arch: arm64
+      script: ./travis_ci.sh nodee2etest  
 
     - stage: test
       name: "Integration test 0"
+      arch: amd64
       script: ./travis_ci.sh integrationtest 4 0
     - stage: test
+      name: "Integration test 0"
+      arch: arm64
+      script: ./travis_ci.sh integrationtest 4 0  
+    - stage: test
       name: "Integration test 1"
+      arch: amd64
       script: ./travis_ci.sh integrationtest 4 1
     - stage: test
+      name: "Integration test 1"
+      arch: arm64
+      script: ./travis_ci.sh integrationtest 4 1  
+    - stage: test
       name: "Integration test 2"
+      arch: amd64
       script: ./travis_ci.sh integrationtest 4 2
     - stage: test
+      name: "Integration test 2"
+      arch: arm64
+      script: ./travis_ci.sh integrationtest 4 2  
+    - stage: test
       name: "Integration test 3"
+      arch: amd64
       script: ./travis_ci.sh integrationtest 4 3
+    - stage: test
+      name: "Integration test 3"
+      arch: arm64
+      script: ./travis_ci.sh integrationtest 4 3  
