@@ -92,7 +92,7 @@ run_node_e2e_test() {
 
 check_port() {
 	# docker-containerd will use port 10010 in docker.service
-	sudo netstat -npl | grep "containerd"
+	sudo netstat -npl | grep "10010"
 	if [[ $? -ne 0 ]]; then
 		return
 	fi
