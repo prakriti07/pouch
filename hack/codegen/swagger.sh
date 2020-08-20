@@ -27,7 +27,7 @@ swagger::install() {
   echo ">>>> install swagger-${SWAGGER_VERSION} <<<<"
   local url
   
-  url="https://github.com/go-swagger/go-swagger/releases/download/${SWAGGER_VERSION}/swagger_linux_amd64"
+  url="https://github.com/go-swagger/go-swagger/releases/download/${SWAGGER_VERSION}/swagger_linux_x86_64"
 
   wget --quiet -O /usr/local/bin/swagger "${url}"
   chmod +x /usr/local/bin/swagger
