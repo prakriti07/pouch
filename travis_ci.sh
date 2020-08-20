@@ -48,7 +48,7 @@ run_unittest() {
 run_integration_test() {
   local job_id=$1
 
-  check_port
+  #check_port
 
   make build
   sudo env "PATH=$PATH" make install
@@ -61,8 +61,9 @@ run_integration_test() {
 }
 
 run_criv1alpha2_test() {
-  check_port
-
+  #check_port
+  sudo netstat -npl | grep -q "10010"
+  echo "DONE"
   make build
   TEST_FLAGS="" BUILDTAGS="selinux seccomp apparmor" make build-daemon-integration
   sudo env "PATH=$PATH" make install
