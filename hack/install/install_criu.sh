@@ -7,7 +7,7 @@ source "./check.sh"
 
 # criu::ubuntu::install will install criu from source.
 criu::ubuntu::install() {
-  apt-get install -y -q criu
+  apt-get install -y criu
 }
 
 main() {
