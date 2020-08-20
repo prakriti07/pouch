@@ -48,7 +48,7 @@ run_unittest() {
 run_integration_test() {
   local job_id=$1
 
-  #check_port
+  check_port
 
   make build
   sudo env "PATH=$PATH" make install
@@ -61,9 +61,9 @@ run_integration_test() {
 }
 
 run_criv1alpha2_test() {
-  #check_port
-  sudo netstat -npl
-  sudo netstat -npl | grep "10010"
+  check_port
+  #sudo netstat -npl
+  #sudo netstat -npl | grep "10010"
   echo "DONE"
   make build
   TEST_FLAGS="" BUILDTAGS="selinux seccomp apparmor" make build-daemon-integration
@@ -92,10 +92,10 @@ run_node_e2e_test() {
 
 check_port() {
 	# docker-containerd will use port 10010 in docker.service
-	sudo netstat -npl | grep -q "38003"
-	if [[ $? -ne 0 ]]; then
-		return
-	fi
+	#sudo netstat -npl | grep -q "38003"
+	#if [[ $? -ne 0 ]]; then
+	#	return
+	#fi
 
 	sudo systemctl stop docker
 }
