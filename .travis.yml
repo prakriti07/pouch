@@ -24,9 +24,7 @@ install:
       sudo rm -rf /usr/local/go;
       sudo mv go /usr/local;
       export GOROOT=/usr/local/go;
-      export GOPATH=/home/travis/gopath;
-      export PATH=$GOPATH/bin:$GOROOT/bin:$PATH;
-      go version;
+      export PATH=$GOROOT/bin:$PATH;
       sudo ./hack/install/install_containerd.sh;
     fi
   - service docker status
