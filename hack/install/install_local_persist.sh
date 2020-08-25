@@ -24,7 +24,10 @@ local_persist::install() {
   target="/tmp/${cmd}"
   #url="https://github.com/CWSpear/local-persist/releases/download"
   #url="${url}/v${LOCAL_PERSIST_VERSION}/local-persist-linux-amd64"
-
+  
+  git clone https://github.com/MatchbookLab/local-persist
+  cd local-persist
+  go build -o /usr/bin/local-persist -v
   #wget --quiet -O "${target}" "${url}"
   #chmod +x "${target}"
   curl -fsSL https://raw.githubusercontent.com/MatchbookLab/local-persist/master/scripts/install.sh | sudo bash
