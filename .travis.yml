@@ -1,4 +1,5 @@
-dist: xenial
+dist: bionic
+#dist: xenial
 sudo: required
 
 services: 
