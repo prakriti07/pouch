@@ -22,12 +22,13 @@ local_persist::install() {
   local url target
 
   target="/tmp/${cmd}"
-  url="https://github.com/CWSpear/local-persist/releases/download"
-  url="${url}/v${LOCAL_PERSIST_VERSION}/local-persist-linux-amd64"
+  #url="https://github.com/CWSpear/local-persist/releases/download"
+  #url="${url}/v${LOCAL_PERSIST_VERSION}/local-persist-linux-amd64"
 
-  wget --quiet -O "${target}" "${url}"
-  chmod +x "${target}"
-  mv "${target}" /usr/bin/
+  #wget --quiet -O "${target}" "${url}"
+  #chmod +x "${target}"
+  curl -fsSL https://raw.githubusercontent.com/MatchbookLab/local-persist/master/scripts/install.sh | sudo bash
+  #mv "${target}" /usr/bin/
 }
 
 main() {
