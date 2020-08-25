@@ -51,7 +51,8 @@ jobs:
         - sudo systemctl stop containerd
         - ./hack/install/install_containerd.sh
         - sudo chmod 664 /etc/systemd/system/containerd.service
-        - sudo systemctl enable containerd
+        - sudo cat /etc/containerd/config.toml
+        #- sudo systemctl enable containerd
         - sudo systemctl start containerd
         - service docker status
         - service containerd status
