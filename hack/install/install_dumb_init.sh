@@ -30,7 +30,7 @@ dumb_init::install() {
   target="/tmp/dumb-init"
 
   url="https://github.com/Yelp/dumb-init/releases/download"
-  url="${url}/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_amd64"
+  url="${url}/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_aarch64"
 
   wget --quiet -O "${target}" "${url}"
   mv "${target}" /usr/bin/
