@@ -19,7 +19,7 @@ before_install:
 
 install:
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
-      uname -m
+      uname -m;
     fi
   - service docker status
   - service containerd status
