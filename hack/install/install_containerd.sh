@@ -39,6 +39,8 @@ containerd::install() {
 
   GOPATH=$tmpdir make BUILDTAGS=no_cri # build without cri plugin
   sudo make install
+  sudo containerd config default > /etc/containerd/config.toml
+  sudo cp containerd.service /etc/systemd/system/
 }
 
 main() {
