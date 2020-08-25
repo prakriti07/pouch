@@ -21,8 +21,6 @@ install:
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
       uname -m;
     fi
-  - service docker status
-  - service containerd status
     
 notifications:
   webhooks:
@@ -51,6 +49,8 @@ jobs:
       arch: arm64
       script:
         - ./hack/install/install_containerd.sh
+        - service docker status
+        - service containerd status
         - ./travis_ci.sh criv1alpha2test  
 
     - stage: test
