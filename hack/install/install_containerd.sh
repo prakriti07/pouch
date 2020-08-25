@@ -37,8 +37,8 @@ containerd::install() {
   git clone -b "${CONTAINERD_VERSION}" https://github.com/containerd/containerd "${pkgpath}"
   cd "${pkgpath}"
 
-  sudo GOPATH=$tmpdir make BUILDTAGS=no_cri # build without cri plugin
-  sudo make install
+  GOPATH=$tmpdir make BUILDTAGS=no_cri # build without cri plugin
+  make install
 }
 
 main() {
