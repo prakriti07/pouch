@@ -50,7 +50,7 @@ jobs:
       name: "CRIv1alpha2 test"
       arch: arm64
       script:
-        - ./hack/install/install_containerd.sh
+        - sudo ./hack/install/install_containerd.sh
         - ./travis_ci.sh criv1alpha2test  
 
     - stage: test
