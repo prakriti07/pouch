@@ -38,7 +38,7 @@ containerd::install() {
   cd "${pkgpath}"
 
   GOPATH=$tmpdir make BUILDTAGS=no_cri # build without cri plugin
-  make install
+  sudo make install
 }
 
 main() {
