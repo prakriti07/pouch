@@ -48,7 +48,14 @@ jobs:
       name: "CRIv1alpha2 test"
       arch: arm64
       script:
+        - sudo systemctl stop containerd
         - ./hack/install/install_containerd.sh
+        - sudo /usr/local/bin/containerd config default > /etc/containerd/config.toml
+        - sudo /usr/local/bin/containerd
+        - sudo cp containerd.service /etc/systemd/system/
+        - sudo chmod 664 /etc/systemd/system/containerd.service
+        - sudo systemctl enable containerd
+        - sudo systemctl start containerd
         - service docker status
         - service containerd status
         - ./travis_ci.sh criv1alpha2test  
