@@ -41,6 +41,7 @@ containerd::install() {
   sudo make install
   sudo mkdir /etc/containerd/
   sudo touch /etc/containerd/config.toml
+  sudo chmod /etc/containerd/config.toml
   sudo containerd config default > /etc/containerd/config.toml
   sudo cp containerd.service /etc/systemd/system/
 }
