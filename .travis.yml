@@ -20,6 +20,18 @@ before_install:
 install:
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
       uname -m;
+      sudo systemctl stop containerd;
+      ./hack/install/install_containerd.sh;
+      sudo mkdir /etc/containerd/;
+      sudo touch /etc/containerd/config.toml;
+      sudo chmod 777 /etc/containerd/config.toml;
+      sudo chmod 664 /etc/systemd/system/containerd.service;
+      sudo cp ./config.toml /etc/containerd/config.toml;
+      sudo cat /etc/containerd/config.toml;
+      sudo systemctl start containerd;
+      service docker status;
+      service containerd status;
+      sudo rm /etc/containerd/config.toml;
     fi
     
 notifications:
@@ -49,17 +61,7 @@ jobs:
     - stage: test
       name: "CRIv1alpha2 test"
       arch: arm64
-      script:
-        - sudo systemctl stop containerd
-        - ./hack/install/install_containerd.sh
-        - sudo chmod 664 /etc/systemd/system/containerd.service
-        - sudo cp ./config.toml /etc/containerd/config.toml
-        - sudo cat /etc/containerd/config.toml
-        #- sudo systemctl enable containerd
-        - sudo systemctl start containerd
-        - service docker status
-        - service containerd status
-        - ./travis_ci.sh criv1alpha2test  
+      script: ./travis_ci.sh criv1alpha2test  
 
     - stage: test
       name: "Node e2e test"
