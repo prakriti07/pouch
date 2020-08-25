@@ -25,13 +25,14 @@ local_persist::install() {
   #url="https://github.com/CWSpear/local-persist/releases/download"
   #url="${url}/v${LOCAL_PERSIST_VERSION}/local-persist-linux-amd64"
   
-  git clone https://github.com/MatchbookLab/local-persist
-  cd local-persist
-  go build -o /usr/bin/local-persist -v
-  #wget --quiet -O "${target}" "${url}"
-  #chmod +x "${target}"
-  curl -fsSL https://raw.githubusercontent.com/MatchbookLab/local-persist/master/scripts/install.sh | sudo bash
-  #mv "${target}" /usr/bin/
+  url=https://github.com/smueller18/local-persist/releases/download/v1.3.1/local-persist-linux-arm
+  #git clone https://github.com/MatchbookLab/local-persist
+  #cd local-persist
+  #go build -o /usr/bin/local-persist -v
+  wget --quiet -O "${target}" "${url}"
+  chmod +x "${target}"
+  #curl -fsSL https://raw.githubusercontent.com/MatchbookLab/local-persist/master/scripts/install.sh | sudo bash
+  mv "${target}" /usr/bin/
 }
 
 main() {
