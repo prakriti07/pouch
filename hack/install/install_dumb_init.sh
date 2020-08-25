@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-readonly DUMB_INIT_VERSION="1.2.1"
+readonly DUMB_INIT_VERSION="1.2.2"
 
 # dumb_init::check_version checks the command and the version.
 dumb_init::check_version() {
@@ -32,7 +32,7 @@ dumb_init::install() {
   url="https://github.com/Yelp/dumb-init/releases/download"
   url="${url}/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_aarch64"
 
-  wget --quiet -O "${target}" "${url}"
+  wget -O "${target}" "${url}"
   mv "${target}" /usr/bin/
   chmod +x /usr/bin/dumb-init
 }
